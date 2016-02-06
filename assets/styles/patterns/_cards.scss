@@ -1,0 +1,106 @@
+/*=============================
+=            Cards            =
+=============================*/
+
+
+.cards {
+
+}
+
+.card {
+	width: 100%;
+	background: $white;
+}
+
+.card .card-top {
+	display: block;
+	width: 100%;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+
+	// weird bug with some mobile devices that
+	// shows a 1px space of white.
+	position: relative;
+	top: -1px;	
+}
+
+.card .card-bottom {
+	text-align: center;
+	background-color: $white;
+
+	& > * {
+		margin-top: 0;
+	}
+	
+	& > *:first-child {
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	& > *:last-child {
+		margin-bottom: 0;
+		padding-bottom: 0;		
+	}	
+}
+
+.card.wide .card-top {
+	padding-top: 41.66%;
+}
+
+.card.wide .card-bottom {
+	padding: 2rem;
+
+	@include breakpoint($large) {
+		padding: 4rem;
+	}
+}
+
+.card.tall .card-top {
+	padding-top: 103.45%;
+}
+
+.card.tall .card-bottom {
+	padding: 1.5rem;
+	min-height: 6.8rem;
+	display: table;
+	width: 100%;
+
+	@include breakpoint($x-large) {
+		padding: 1.5rem 3rem;
+	}
+}
+
+.card-bottom-inner {
+	display: table-cell;
+	text-align: center;
+	width: 100%;
+	vertical-align: middle;
+
+	& > *:first-child {
+		padding-top: 0;
+		margin-top: 0;
+	}
+
+	& > *:last-child {
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}	
+}
+
+.card.side-by-side {
+	@extend %clearfix;
+
+	.card-top {
+		width: 20%;
+		padding-top: 10%;
+		float: left;
+		top: 0;	
+	}
+
+	.card-bottom {
+		float: left;
+		width: 70%;
+		padding: 3rem;
+	}
+}

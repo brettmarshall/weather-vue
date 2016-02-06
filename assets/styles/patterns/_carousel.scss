@@ -1,0 +1,112 @@
+/*======================================
+=            Image Carousel            =
+======================================*/
+
+
+
+.carousel-wrap {
+	@extend %clearfix;
+	
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+}
+
+.img-carousel {
+	position: relative;
+}
+
+.carousel-item {
+	width: 100%;	
+	display: block;
+	height: 11rem;
+	background-size: auto 80%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.img-carousel {
+	height: 11rem;
+
+	.owl-prev, .owl-next {
+		position: absolute;
+		top: 4.5rem;
+		font-size: 0;
+
+		&:before {
+			content: "";
+			left: 0;
+			top: 0;
+			position: absolute;
+			width: 0; 
+			height: 0; 
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent; 
+			border-right:10px solid $light-grey; 
+		}
+	}	
+
+	.owl-prev {
+		left: -15px;
+	}
+
+	.owl-next {
+		right: -5px;
+
+		&:before {
+			right: 0;
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent; 
+			border-left:10px solid $light-grey; 
+			border-right: none;
+		}
+	}
+
+}
+
+.img-carousel .owl-dots {
+	@include horz-center(absolute);
+
+	bottom: -3rem;
+	width: auto;
+	display: none;
+
+	@include breakpoint(600px) {
+		display: block;
+	}
+
+	.owl-dot {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		background-color: $light-grey;
+		border-radius: 100%;
+		margin: 0 8px;
+		position: relative;
+
+		&:before {
+			content: "";
+			height: 18px;
+			width: 18px;
+			position: absolute;
+			top: -4px;
+			left: -4px;
+			border: 1px solid $light-grey;
+			background: transparent;
+			transform: scale(0);
+			display: inline-block;
+			border-radius: 100%;
+			transition: transform 0.3s ease-out;
+		}
+
+		&.active {
+
+			&:before {
+				transform: scale(1);
+				transition: transform 0.3s ease-in;
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,57 @@
+/*=====================================
+=            Theme Helpers            =
+=====================================*/
+
+
+// These are indicators to help the developer better understand an empty theme
+
+.placeholder-space {
+	background: rgba($theme-color, 0.05);
+	box-shadow: inset 0px 0px 10px 1px rgba($theme-color, 0.1);
+	border-radius: 5px;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+
+	& > * {
+		display: inline-block;
+		vertical-align: middle;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	&:before {
+		@include center-center(absolute);
+
+		content: "Placeholder";
+		color: rgba($theme-color, 0.5);
+	}
+
+	&.no-placeholder {
+
+		&:before {
+			content: "";
+		}
+	}
+
+	&.ps-small {
+		min-height: 75px;
+	}
+
+	&.ps-medium {
+		min-height: 300px;
+	}
+
+	&.ps-large {
+		min-height: 500px;
+	}
+
+}
+
+pre {
+	background: #333;
+	color: #fff;
+	padding: 3rem;
+	width: 80%;
+	margin: 3rem auto;
+	border-radius: 6px;
+}

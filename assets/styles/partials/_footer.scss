@@ -1,0 +1,22 @@
+/*==============================
+=            Footer            =
+==============================*/
+
+
+// Footer Class
+.content-info {
+	@extend %clearfix;
+
+	width: 100%;
+	background: lighten($light-grey, 15%);
+}
+
+.top-footer, .bottom-footer {
+	@extend %clearfix;
+	
+	width: 100%;	
+}
+
+.content-info .container {
+
+}

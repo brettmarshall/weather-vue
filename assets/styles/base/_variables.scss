@@ -1,0 +1,44 @@
+/*=================================
+=            Variables            =
+=================================*/
+
+
+
+// Colors
+$theme-color: #47aa5d;
+$light-grey: #cdcdcd;
+$dark-grey: #505050;
+$white: #fff;
+$black: #000;
+$text-light: $white;
+$text-dark: $black;
+
+// Breakpoints
+$x-tiny: 320px;
+$tiny: 480px;
+$small: 768px;
+$medium: 992px;
+$large: 1200px;
+$x-large: 1440px;
+$xx-large: 1700px;
+$xxx-large: 2000px;
+
+// Fonts
+$serif: serif;
+$sans-serif: sans-serif;
+$font: $serif;
+$headline: $sans-serif;
+
+// Typography  ! This should be used in conjunction with the font-size() @mixin ¡
+$h1: 48px;
+$h2: 42px;
+$h3: 36px;
+$h4: 28px;
+$h5: 24px;
+$h6: 18px;
+
+// Default Spacing 
+$space: 30px;
+
+// Easing
+$easing: cubic-bezier(0.68,-0.55, 0.43, 1.46);

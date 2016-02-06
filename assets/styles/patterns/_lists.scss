@@ -1,0 +1,78 @@
+/*==================================================
+=            Lists ( Grid && List View)            =
+==================================================*/
+
+
+.builder-lists {
+
+}
+
+.builder-list {
+	@extend %clearfix;
+
+	list-style-type: none;
+	padding: 0;
+	margin: 0 -1.5rem -3rem -1.5rem;
+	color: $dark-grey;
+
+	&.grid-view {
+
+	}
+
+	&.list-view {
+		
+	}	
+	
+}
+
+.grid-view .list-item {
+	width: 100%;
+	float: left;
+	padding: 0 1.5rem 3rem 1.5rem;
+
+	@include breakpoint($tiny) {
+		width: 50%;
+	}
+
+	@include breakpoint($small) {
+		width: 33.33%;
+	}	
+
+	@include breakpoint($large) {
+		width: 20%;
+	}
+
+	&:nth-child(2n+1) {
+
+		@include breakpoint($tiny) {
+			clear: left;
+		}			
+
+		@include breakpoint($small) {
+			clear: none;
+		}
+	}
+
+	&:nth-child(3n+1) {
+
+		@include breakpoint($small) {
+			clear: left;
+		}			
+
+		@include breakpoint($large) {
+			clear: none;
+		}
+	}
+
+	&:nth-child(5n+1) {
+
+		@include breakpoint($large) {
+			clear: left;
+		}			
+
+	}				
+}
+
+.list-view .list-item {
+	padding-bottom: 3rem;
+}

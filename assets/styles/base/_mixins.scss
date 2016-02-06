@@ -1,0 +1,143 @@
+/*==============================
+=            Mixins            =
+==============================*/
+
+
+
+/*==========  Breakpoints  ==========*/
+
+// update allows for setting min or max width, defaults to min-width 
+// for backwards compatability
+
+@mixin breakpoint($point, $minOrMax: min-width) {
+    @media ( $minOrMax: $point ) {
+        @content;
+    }
+}
+
+
+
+/*==========  Opacity  ==========*/
+
+
+@mixin opacity($value: 0) {
+
+  /* IE 8 */
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity='$value * 100')';
+
+  /* IE 5-7 */
+  filter: alpha(opacity=$value * 100);
+
+  /* Netscape */
+  -moz-opacity: $value;
+
+  /* Safari 1.x */
+  -khtml-opacity: $value;
+
+  /* Good browsers */
+  opacity: $value;
+
+}
+
+
+
+/*==========  Various Element Centering Mixins  ==========*/
+
+@mixin vertical-center($position: relative) {
+	position: $position;
+	top: 50% !important;
+	transform: translateY(-50%);
+}
+
+@mixin horz-center($position: relative) {
+	position: $position;
+	left: 50% !important;
+	transform: translateX(-50%);
+}
+
+@mixin center-center($position: relative) {
+	position: $position;
+	top: 50% !important;
+	left: 50% !important;
+	right: auto !important;
+	bottom: auto !important;
+	transform: translate(-50%, -50%);
+}
+
+
+
+/*==========  Rem Font Size w/ px backup  ==========*/
+
+@function calculateRem($size) {
+  $remSize: $size / 10px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+
+
+/*==========  Backface Visibility Fix, apply to elements with flicker bug on transform  ==========*/
+@mixin backface($visibility: hidden){
+  -webkit-backface-visibility: $visibility;
+  -ms-backface-visibility:     $visibility;
+}
+
+
+
+/*==========  Hide Text  ==========*/
+@mixin hide-text() {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+
+
+/*-----  End of Mixins  ------*/
+
+
+
+
+
+
+/*=============================================
+=            Placeholders           =
+=============================================*/
+
+
+
+/*==========  Clearfix  ==========*/
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+
+/*==========  Visually Hide w/ accessibility in mind  ==========*/
+
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+
+
+/*-----  End of Placeholders  ------*/

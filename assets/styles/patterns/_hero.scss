@@ -1,0 +1,49 @@
+/*============================
+=            Hero            =
+============================*/
+
+
+.hero {
+	width: 100%;
+	clear: both;
+	min-height: 100vh;
+	height: auto;
+	padding: 20rem 0 10rem 0;
+	position: relative;
+
+	@include breakpoint($small) {
+		padding: 0;
+	}
+
+	@include breakpoint($small, max-height) {
+		padding: 15rem 0 10rem 0;
+	}
+}
+
+.hero-content {
+	@extend %clearfix;
+
+	text-align: center;
+	width: 100%;
+	clear: both;
+
+	@include breakpoint(500px) {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		right: auto;
+		bottom: auto;
+		transform: translate(-50%, -50%);
+		z-index: 5;
+	}
+
+	@include breakpoint($small, max-height) {
+		position: static;
+		transform: none;
+	}	
+
+	.hero-text > *:first-child {
+		margin-top: 0;
+	}
+
+}
