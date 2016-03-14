@@ -23,6 +23,7 @@ var rsync        = require('rsyncwrapper').rsync;
 var secrets      = require('./secrets.json');
 var gutil        = require('gulp-util');
 var del          = require('del');
+var php2html     = require("gulp-php2html");
 
 // See https://github.com/austinpray/asset-builder
 var manifest = require('asset-builder')('./assets/manifest.json');
@@ -158,6 +159,8 @@ var writeToManifest = function(directory) {
     .pipe(gulp.dest, path.dist)();
 };
 
+
+
 // ## Gulp tasks
 // Run `gulp -T` for a task summary
 
@@ -231,6 +234,12 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter('fail'));
 });
 
+gulp.task('htmlDist', function() {
+  gulp.src("index.php")
+    .pipe(php2html())
+    .pipe(gulp.dest("./"));  
+});
+
 // ### Clean
 // `gulp clean` - Deletes the build folder entirely.
 gulp.task('clean', require('del').bind(null, [path.dist]));
@@ -243,7 +252,7 @@ gulp.task('clean', require('del').bind(null, [path.dist]));
 // See: http://www.browsersync.io
 gulp.task('watch', function() {
   browserSync.init({
-    files: ['{lib,templates}/**/*.php', '*.php'],
+    files: ['{partials}/*.php', '*.php', 'index.php'],
     proxy: config.devUrl,
     snippetOptions: {
       whitelist: ['/wp-admin/admin-ajax.php'],
@@ -254,6 +263,7 @@ gulp.task('watch', function() {
   gulp.watch([path.source + 'scripts/**/*'], ['jshint', 'scripts']);
   gulp.watch([path.source + 'fonts/**/*'], ['fonts']);
   gulp.watch([path.source + 'images/**/*'], ['images']);
+  gulp.watch(['index.php'], ['htmlDist']);
   gulp.watch(['bower.json', 'assets/manifest.json'], ['build']);
 });
 
@@ -263,7 +273,7 @@ gulp.task('watch', function() {
 gulp.task('build', function(callback) {
   runSequence('styles',
               'scripts',
-              ['fonts', 'images'],
+              ['fonts', 'images', 'htmlDist'],
               callback);
 });
 

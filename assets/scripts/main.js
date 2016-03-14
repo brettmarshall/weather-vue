@@ -100,7 +100,7 @@
         console.log(error);
     }           
 
-    geolocator.locateByIP(onGeoSuccess, onGeoError, 2);
+    geolocator.locateByIP(onGeoSuccess, onGeoError, 'http://geoiplookup.wikimedia.org');
 
     function onGeoSuccess(location) {
 
