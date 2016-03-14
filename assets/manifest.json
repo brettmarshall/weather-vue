@@ -25,6 +25,6 @@
     }
   },
   "config": {
-    "devUrl": "http://grizzly-static.dev"
+    "devUrl": "http://weather.dev"
   }
 }

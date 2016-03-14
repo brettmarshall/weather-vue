@@ -16,7 +16,10 @@
     "matchHeight": "matchheight#~0.6.0",
     "floatlabel.js": "*",
     "chosen": "~1.4.2",
-    "iCheck": "~1.0.2"
+    "iCheck": "~1.0.2",
+    "vue": "^1.0.17",
+    "geolocator": "^1.2.9",
+    "moment": "^2.12.0"
   },
   "overrides": {
     "modernizr": {
@@ -30,10 +33,10 @@
     },
     "chosen": {
       "main": "./chosen.jquery.min.js"
-    },    
+    },
     "iCheck": {
       "main": "./icheck.js"
-    },    
+    },
     "matchHeight": {
       "main": "./jquery.matchHeight-min.js"
     },
