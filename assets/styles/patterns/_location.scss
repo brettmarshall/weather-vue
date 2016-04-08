@@ -1,0 +1,39 @@
+/*================================
+=            Location            =
+================================*/
+
+
+.location-meta {
+	display: block;
+	width: 100%;
+	position: absolute;
+	bottom: 2.4rem;
+	left: 2.4rem;
+	color: rgba(#000, 0.6);
+}
+
+.location-meta__location {
+	background: url('../images/location.svg') left center no-repeat;
+	background-size: auto 2.4rem;
+	padding-left: 2.2rem;
+	line-height: 2.4rem;
+	display: inline-block;
+	width: auto;
+}
+
+.location-meta__time {
+	display: inline-block;	
+	width: auto;
+	padding-left: 1.8rem;
+}
+
+.location-meta__calendar {
+	@include font-size(14px);
+
+	background: url('../images/calendar.svg') top left no-repeat;	
+	height: 2.4rem;
+	width: 2.4rem;
+	display: inline-block;
+    text-align: center;
+    padding-top: 0.1rem;	
+}

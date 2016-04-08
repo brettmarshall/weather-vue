@@ -1,0 +1,37 @@
+/*================================
+=            Week Day            =
+================================*/
+
+.week-wrap {
+	text-align: center;
+	padding-top: 4.6rem;
+}
+
+.week-day {
+	text-align: center;
+	display: inline-block;
+	padding-right: 3.2rem;
+	padding-left: 3.2rem;
+
+	&:last-of-type {
+		margin-right: 0;
+	}
+
+}
+
+.week-day__day {
+	text-transform: uppercase;
+}
+
+.week-day__icon {
+	transform: scale(1.8);
+	margin-top: 2.1rem;
+	margin-bottom: 1.3rem;
+}
+
+.week-day__temp {
+	@include font-size(22px);
+
+	text-transform: uppercase;
+	font-weight: 700;
+}

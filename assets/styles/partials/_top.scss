@@ -1,0 +1,31 @@
+/*===============================
+=            App Top            =
+===============================*/
+
+
+.app-top {
+	background: #FFDC69;
+	padding-top: 3rem;
+	// padding-bottom: 10.4rem;
+	height: 70vh;
+	background-image: linear-gradient(148deg, #FFDC69 0%, #FFEA9D 98%);
+
+	svg {
+		width: 30rem;
+		height: 30rem;
+		margin-bottom: -6.5rem;		
+	}
+}
+
+.app-top--is-day {
+
+}
+
+.app-top--is-night {
+	background-image: linear-gradient(148deg, #2B0550 0%, #540988 98%);
+	color: #fff;
+
+	svg path {
+		fill: #fff;
+	}
+}

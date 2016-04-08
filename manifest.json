@@ -12,7 +12,8 @@
 	"permissions": [
 		"http://localhost/",
 		"http://api.aerisapi.com/",
-		"http://geoiplookup.wikimedia.org/"
+		"http://geoiplookup.wikimedia.org/",
+		"http://weather.brett-marshall.com/"
 	],
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

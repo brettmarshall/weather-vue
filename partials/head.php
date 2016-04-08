@@ -5,6 +5,10 @@
 <link rel="shortcut icon" href="favicon.ico"/>
 
 
+<style>
+	#app { display: none; }
+</style>
+
 <link rel="stylesheet" href="dist/styles/main.css">
 
 <!-- Twitter Card data -->
@@ -25,3 +29,5 @@
 <meta property="og:site_name" content="Site Title" />
 
 <!-- Google Tag Manager -->
+
+<script type="text/javascript" src="//fast.fonts.net/jsapi/250f98b8-9f1d-44c5-8d23-6c39520e2d49.js"></script>

@@ -10,45 +10,51 @@
         <?php include_once('partials/header.php'); ?>
         
         <div id="app">
+            
+            <div class="app-top app-top--is-{{ timeOfDay }}">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h2>{{ city }}, {{ state }}</h2>
-                    <p>
-                        <strong>{{ weekDay }}</strong>
-                        {{ month }} {{ day }}, {{ year }}, {{ time }}
-                    </p>
-                    <h4>
-                        <img v-bind:src="'/dist/images/' + weather.today.icon" width="55" height="55" />
-                        {{ weather.today.weather }}
-                        <br>
-                        <strong>{{ weather.today.tempF }}&deg; </strong>
-                        <br>
-                        High of {{ weather.today.maxTempF }}&deg; 
-                        <br>
-                        Low of {{ weather.today.minTempF }}&deg; 
-                    </h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 center-text">
+                            <div class="day-of">
+                                {{ weather.today.newIcon }}
+                                <h2 class="day-of__description">{{ weather.today.weather }}</h2>
+                                <h1 class=class="day-of__temp">{{ weather.today.tempF }}&deg;</h1>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <p v-for="five in weather.fiveDay">
-                        <strong>{{ five.day }}</strong>
-                        <br>
-                        <img v-bind:src="'/dist/images/' + five.icon" width="55" height="55" />
-                        <br>
-                        {{ five.weather }}
-                        <br>
-                        <strong>{{ five.tempF }}&deg; </strong>
-                        <br>
-                        High of {{ five.maxTempF }}&deg; 
-                        <br>
-                        Low of {{ five.minTempF }}&deg; 
-                    </p>
+
+            <div class="app-bottom">
+                
+                <div class="container">
+                    <div class="col-md-12">
+
+                        <div class="week-wrap">
+                        
+                            <div class="week-day" v-for="five in weather.fiveDay">
+                                <p class="week-day__day">{{ five.day }}</p>
+                                <img class="week-day__icon" v-bind:src="'/dist/images/' + five.newIcon" width="55" height="55" />
+                                <p class="week-day__temp">{{ five.tempF }}&deg;</p>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
-            </div>            
-        </div>
+
+                <div class="location-meta">
+                    <p class="location-meta__location">{{ city }}</p>
+                    <p class="location-meta__time">
+                        <span class="location-meta__calendar">{{ day }}</span>
+                        <strong>{{ weekDay }}</strong>, {{ time }}
+                    </p>
+                </div>             
+
+            </div>
+
             
         </div>
 

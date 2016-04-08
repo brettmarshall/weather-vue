@@ -36,6 +36,24 @@
 
   WV.vue = function() {
 
+  var getUrlParameter = function getUrlParameter(sParam) {
+      var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+          sURLVariables = sPageURL.split('&'),
+          sParameterName,
+          i;
+
+      for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+
+          if (sParameterName[0] === sParam) {
+              return sParameterName[1] === undefined ? true : sParameterName[1];
+          }
+      }
+  };
+
+  var client_id = getUrlParameter('id') || 'xeLjwzcBZlpB1FxcTvQeN';
+  var client_secret = getUrlParameter('secret') || 'dSL0o3LFRHpvvkXcfGloWJwcYIrGSgbwBzgPZDCU';
+
     // define
     var MyComponent = Vue.extend({
       template: '<div>A custom component!</div>'
@@ -49,7 +67,12 @@
         data: {
 
           weather: {
-              today: [],
+              today: [
+                {
+                  newIcon: "",
+                  day: ""
+                }
+              ],
               fiveDay: []
           },
           day: "",
@@ -57,6 +80,7 @@
           year: "",
           weekDay: "",
           time: "",
+          timeOfDay: "",
           city: "",
           state: ""
 
@@ -73,13 +97,13 @@
       });  
 
     var weekday = new Array(7);
-    weekday[0]=  "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
+    weekday[0]=  "Sun";
+    weekday[1] = "Mon";
+    weekday[2] = "Tues";
+    weekday[3] = "Wed";
+    weekday[4] = "Thu";
+    weekday[5] = "Fri";
+    weekday[6] = "Sat";
 
     var month = new Array(11);
     month[0] = "January";
@@ -95,6 +119,13 @@
     month[10] = "November";
     month[11] = "December";
 
+    vm.weekDay = moment().format('dddd');
+    vm.time = moment().format('h:mm a');
+    vm.day = moment().format('D');
+
+    setInterval(function() {
+      vm.time = moment().format('h:mma');  
+    }, 60000);    
 
     function onGeoError(error) {
         console.log(error);
@@ -114,13 +145,10 @@
 
       var date = new Date();
 
-      setInterval(function() {
-        vm.time = moment().format('LTS');  
-      }, 100);
       
       // Todat's forcast
       $.ajax({
-         url: "http://api.aerisapi.com/forecasts/" + lat + ', ' + long + "?filter=6hr&limit=1&client_id=xeLjwzcBZlpB1FxcTvQeN&client_secret=dSL0o3LFRHpvvkXcfGloWJwcYIrGSgbwBzgPZDCU",
+         url: "http://api.aerisapi.com/forecasts/" + lat + ', ' + long + "?filter=1hr&limit=1&client_id=" + client_id + "&client_secret=" + client_secret,
          dataType: "jsonp",
          success: function(json) {
             if (json.success === true) {
@@ -135,16 +163,23 @@
 
                   todayObj = ob[i].periods;
 
-                  vm.day = timeSplit[2];
                   vm.month = month[date.getMonth()];
                   vm.year = timeSplit[3];
-                  vm.weekDay = weekday[date.getDay()];
 
                 }
 
                 vm.weather.today = todayObj[0];
+                //vm.weather.today.newIcon = todayObj[0].icon.replace('png', 'svg');
+                vm.timeOfDay = todayObj[0].isDay === false ? 'night' : 'day';
 
                //$('#app').html('The current weather in Seattle is ' + ob.weather.toLowerCase() + ' with a temperature of ' + ob.tempF + '°');
+              $.get('/assets/images/' + todayObj[0].icon.replace('png', 'svg'), function(svg){
+                 
+                 vm.weather.today.newIcon = svg.documentElement;
+
+                 $('.day-of').prepend(vm.weather.today.newIcon);
+                 
+              });      
             }
             else {
                alert('An error occurred: ' + json.error.description);
@@ -152,9 +187,10 @@
          }
       });
 
+
       // 5 Day Forcast
       $.ajax({
-         url: "http://api.aerisapi.com/forecasts/" + lat + ', ' + long + "?filter=24hr&limit=5&client_id=xeLjwzcBZlpB1FxcTvQeN&client_secret=dSL0o3LFRHpvvkXcfGloWJwcYIrGSgbwBzgPZDCU",
+         url: "http://api.aerisapi.com/forecasts/" + lat + ', ' + long + "?filter=24hr&limit=5&client_id=" + client_id + "&client_secret=" + client_secret,
          dataType: "jsonp",
          success: function(json) {
             if (json.success === true) {
@@ -178,6 +214,8 @@
                   var fiveDayDate = new Date(days[a].validTime);
 
                   days[a].day = weekday[fiveDayDate.getDay()];
+
+                  days[a].newIcon = days[a].icon.replace('png', 'svg');
 
                 }                
 
@@ -429,13 +467,19 @@
 
   };
 
+  WV.reveal = function() {
+    var app = $('#app');
+
+    app.fadeIn(300);
+  };
+
 
 
 
 
 
 $window.load(function(){
-
+  WV.reveal();
 });
 
 $(document).ready(function(){
