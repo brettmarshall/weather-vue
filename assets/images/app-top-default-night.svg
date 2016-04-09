@@ -26,7 +26,7 @@
                         <rect id="Rectangle-1-Copy-10" fill-opacity="0.1" fill="#FFDB4D" transform="translate(720.000000, 476.000000) scale(1, -1) translate(-720.000000, -476.000000) " x="0" y="112" width="1440" height="728"></rect>
                         <rect id="Rectangle-1-Copy-11" fill-opacity="0.1" fill="#FFDB4D" transform="translate(720.000000, 420.000000) scale(1, -1) translate(-720.000000, -420.000000) " x="0" y="56" width="1440" height="728"></rect>
                         <rect id="Rectangle-1-Copy-12" fill-opacity="0.1" fill="#FFDB4D" transform="translate(720.000000, 364.000000) scale(1, -1) translate(-720.000000, -364.000000) " x="0" y="0" width="1440" height="728"></rect>
-                        <rect id="Rectangle-20" fill="#FEAE32" style="mix-blend-mode: color;" x="0" y="33" width="1440" height="595"></rect>
+                        <rect id="Rectangle-20" fill="#3D2375" style="mix-blend-mode: multiply;" x="0" y="33" width="1440" height="595"></rect>
                     </g>
                 </g>
             </g>

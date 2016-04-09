@@ -177,7 +177,9 @@
                  
                  vm.weather.today.newIcon = svg.documentElement;
 
-                 $('.day-of').prepend(vm.weather.today.newIcon);
+                 if ($('#app').attr('data-app') == 'true') {
+                  $('.day-of').prepend(vm.weather.today.newIcon);
+                 }
                  
               });      
             }

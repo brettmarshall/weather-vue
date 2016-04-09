@@ -34,7 +34,7 @@
 	background: url('../images/location.svg') left center no-repeat;
 	background-size: auto 2.4rem;
 	padding-left: 2.2rem;
-	line-height: 2.4rem;
+	line-height: 2.5rem;
 	display: inline-block;
 	width: auto;
 }
@@ -48,7 +48,8 @@
 .location-meta__calendar {
 	@include font-size(14px);
 
-	background: url('../images/calendar.svg') top left no-repeat;	
+	background: url('../images/calendar.svg') top left no-repeat;
+	background-size: auto 2.4rem;	
 	height: 2.4rem;
 	width: 2.4rem;
 	display: inline-block;

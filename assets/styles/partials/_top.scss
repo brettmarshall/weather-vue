@@ -7,11 +7,15 @@
 	background: #FFDC69;
 	height: auto;
 	background-image: url('../images/app-top-default-day.svg');
+	background-size: cover;
+	background-position: bottom center;
+	background-repeat: no-repeat;
 	color: #000;
 	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;	
+	overflow-x: hidden;
 	
 	@include breakpoint(450px, min-height) {
 		height: 60vh;
@@ -25,13 +29,17 @@
 		height: 70vh;
 	}
 
+	&.app-top--testing {
+
+	}
+
 	svg {
 		width: 30rem;
 		height: 30rem;
 		margin-bottom: -6.5rem;
 		margin-top: -4rem;		
 
-		path {
+		path, ellipse {
 			fill: #000;
 		}
 	}
@@ -42,11 +50,11 @@
 }
 
 .app-top--is-night {
-	background-image: linear-gradient(148deg, #2B0550 0%, #540988 98%);
+	background-image: url('../images/app-top-default-night.svg');
 	//background-image: url('../images/app-top-night.svg');
 	color: #fff;
 
-	svg path {
+	svg path, svg ellipse {
 		fill: #fff;
 	}
 }
