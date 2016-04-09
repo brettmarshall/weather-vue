@@ -9,11 +9,17 @@
 	// padding-bottom: 10.4rem;
 	height: 70vh;
 	background-image: linear-gradient(148deg, #FFDC69 0%, #FFEA9D 98%);
+	//background-image: url('../images/app-top-sun.svg');
+	color: #000;
 
 	svg {
 		width: 30rem;
 		height: 30rem;
 		margin-bottom: -6.5rem;		
+
+		path {
+			fill: #000;
+		}
 	}
 }
 
@@ -23,6 +29,7 @@
 
 .app-top--is-night {
 	background-image: linear-gradient(148deg, #2B0550 0%, #540988 98%);
+	//background-image: url('../images/app-top-night.svg');
 	color: #fff;
 
 	svg path {

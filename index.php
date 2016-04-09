@@ -36,7 +36,7 @@
                         
                             <div class="week-day" v-for="five in weather.fiveDay">
                                 <p class="week-day__day">{{ five.day }}</p>
-                                <img class="week-day__icon" v-bind:src="'/dist/images/' + five.newIcon" width="55" height="55" />
+                                <img class="week-day__icon" v-bind:src="'/dist/images/weather-icons/' + five.newIcon" width="55" height="55" />
                                 <p class="week-day__temp">{{ five.tempF }}&deg;</p>
                             </div>
 

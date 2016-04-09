@@ -173,7 +173,7 @@
                 vm.timeOfDay = todayObj[0].isDay === false ? 'night' : 'day';
 
                //$('#app').html('The current weather in Seattle is ' + ob.weather.toLowerCase() + ' with a temperature of ' + ob.tempF + '°');
-              $.get('/assets/images/' + todayObj[0].icon.replace('png', 'svg'), function(svg){
+              $.get('/assets/images/weather-icons/' + todayObj[0].icon.replace('png', 'svg'), function(svg){
                  
                  vm.weather.today.newIcon = svg.documentElement;
 

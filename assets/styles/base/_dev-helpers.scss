@@ -55,3 +55,14 @@ pre {
 	margin: 3rem auto;
 	border-radius: 6px;
 }
+
+.icon-list-group {
+	list-style-type: none;
+
+	li {
+		padding: 1rem 0;
+		border-bottom: 1px solid $light-grey;		
+		width: 100%;
+		display: block;
+	}
+}
