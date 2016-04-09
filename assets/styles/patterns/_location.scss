@@ -4,12 +4,30 @@
 
 
 .location-meta {
-	display: block;
+	display: none;
 	width: 100%;
 	position: absolute;
 	bottom: 2.4rem;
 	left: 2.4rem;
 	color: rgba(#000, 0.6);
+
+	@media (min-width: 1320px) and (min-height: 670px) {
+		display: block;
+	}
+
+	&.location-meta--top {
+		bottom: auto;
+		top: 2.4rem;
+		display: none;
+
+		@include breakpoint(430px, min-width) {
+			display: block;
+		}
+
+		@media (min-width: 1320px) and (min-height: 670px) {
+			display: none;
+		}		
+	}
 }
 
 .location-meta__location {

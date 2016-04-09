@@ -5,17 +5,31 @@
 
 .app-top {
 	background: #FFDC69;
-	padding-top: 3rem;
-	// padding-bottom: 10.4rem;
-	height: 70vh;
-	background-image: linear-gradient(148deg, #FFDC69 0%, #FFEA9D 98%);
-	//background-image: url('../images/app-top-sun.svg');
+	height: auto;
+	background-image: url('../images/app-top-default-day.svg');
 	color: #000;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	
+	@include breakpoint(450px, min-height) {
+		height: 60vh;
+	}		
+
+	@include breakpoint(540px, min-height) {
+		height: 65vh;
+	}	
+
+	@include breakpoint(670px, min-height) {
+		height: 70vh;
+	}
 
 	svg {
 		width: 30rem;
 		height: 30rem;
-		margin-bottom: -6.5rem;		
+		margin-bottom: -6.5rem;
+		margin-top: -4rem;		
 
 		path {
 			fill: #000;

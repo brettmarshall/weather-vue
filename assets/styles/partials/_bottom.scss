@@ -5,5 +5,22 @@
 
 .app-bottom {
 	position: relative;
-	height: 30vh;
+	height: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	padding: 2.9rem 0;
+
+	@media (min-height: 450px) and (min-width: 650px) {
+		height: 40vh;
+		padding: 0;
+	}
+
+	@media (min-height: 540px) and (min-width: 650px) {
+		height: 35vh;
+	}
+
+	@media (min-height: 670px) and (min-width: 650px) {
+		height: 30vh;
+	}					
 }

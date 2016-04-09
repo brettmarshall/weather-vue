@@ -6,6 +6,16 @@
 .day-of {
 	max-width: 40rem;
 	margin: 0 auto;
+	transform: scale(0.5);
+	text-align: center;
+	
+	@media (min-height: 540px) and (min-width: 380px) {
+		transform: scale(0.7);
+	}	
+
+	@media (min-height: 670px) and (min-width: 380px) {
+		transform: scale(1);
+	}
 }
 
 .day-of__description {
