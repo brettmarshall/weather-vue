@@ -58,3 +58,47 @@
 		fill: #fff;
 	}
 }
+
+// Weather Conditions
+
+.app-top__weather-conditions {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+
+.app-top--is-night .drop {
+	opacity: 0.2;
+}
+
+
+.drop {
+	background: linear-gradient(top, rgba(255,255,255,0.1) 0%, rgba(255,255,255,.8) 100%);
+	width:2px;
+	height:20px;
+	position: absolute;
+	bottom:200px;
+	animation: fall 0.6s linear infinite;
+	opacity: 0.5;
+
+ 	 &.drop--light {
+ 	 	height: 50px;
+	}
+
+ 	 &.drop--heavy {
+ 	 	height: 75px;
+	}
+
+ 	 &.drop--very-heavy {
+ 	 	height: 100px;
+	}		
+  
+}
+
+/* animate the drops*/
+@keyframes fall {
+	to {margin-top:900px;}
+}

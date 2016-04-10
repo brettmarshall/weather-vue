@@ -17,6 +17,7 @@
     WV.fancyChoices();
     WV.forms();
     WV.vue();
+    //WV.rain();
     //WV.mixing();
     // WV.skrollr();
   };
@@ -52,15 +53,42 @@
   };
 
   var client_id = getUrlParameter('id') || 'xeLjwzcBZlpB1FxcTvQeN';
-  var client_secret = getUrlParameter('secret') || 'dSL0o3LFRHpvvkXcfGloWJwcYIrGSgbwBzgPZDCU';
+  var client_secret;
 
-    // define
-    var MyComponent = Vue.extend({
-      template: '<div>A custom component!</div>'
-    });
+  if (getUrlParameter('secret') || window.location.hostname == 'weather.brett-marshall.com') {
+    client_secret = 'qPjiDGfctvbRVT0xlPpbhumYgf97VtfbylQP6sSN';
+  } else {
+    client_secret = 'dSL0o3LFRHpvvkXcfGloWJwcYIrGSgbwBzgPZDCU';
+  }
 
-    // register
-    Vue.component('my-component', MyComponent);
+  /* Weather Conditions */
+
+  // function to generate a random number range.
+  function randRange( minNum, maxNum) {
+    return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+  }
+
+  // function to generate drops
+  function createRain(nbDrop, inten) {
+    nbDrop = nbDrop || 50;
+    inten = inten || '';
+
+    for( i=1;i<nbDrop;i++) {
+      var dropLeft = randRange(0,1600);
+      var dropTop = randRange(-1000,1400);
+      var thisDrop = $('#drop'+i);
+
+      $('.app-top__weather-conditions').append('<div class="drop" id="drop'+i+'"></div>');
+      $('#drop'+i).css('left',dropLeft);
+      $('#drop'+i).css('top',dropTop);
+      $('#drop'+i).addClass(inten);
+
+    }
+
+  }
+  // Make it rain
+  //createRain(200);  
+
 
     var vm = new Vue({
         el: '#app',
@@ -171,6 +199,60 @@
                 vm.weather.today = todayObj[0];
                 //vm.weather.today.newIcon = todayObj[0].icon.replace('png', 'svg');
                 vm.timeOfDay = todayObj[0].isDay === false ? 'night' : 'day';
+
+                var weatherCode = todayObj[0].weatherPrimaryCoded.split(':');
+
+                var coverage = String(weatherCode[0]),
+                    intensity = String(weatherCode[1]),
+                    weather = String(weatherCode[2]);
+
+
+                var weatherConditions = new RegExp('[asilrwp]', 'i');
+                var res = weatherConditions.test(weather);
+
+                var drops = '';
+
+                // if there is rain...
+                if (res) {
+                  
+                  // We have some sort of rain or snow...
+
+                  // this gets the intensity of the rain, and adds
+                  // drops and a class for more customization of the drops
+                  switch (intensity) {
+                    case 'VL':
+                      drops = 30;
+                      dropIntensity = '';
+                      break;
+                    case 'L':
+                      drops = 100;
+                      dropIntensity = 'drop--light';
+                      break;
+                    case 'H':
+                      drops = 350;
+                      dropIntensity = 'drop--heavy';
+                      break;                                            
+                    default:
+                      drops = 500;
+                      dropIntensity = 'drop--very-heavy';
+                      break;
+                  }
+
+                  // if the expanded weather string contains the word wind, it rotates
+                  // the box that has the drops, 45 degrees.
+                  var windPatt = new RegExp('wind', 'i');
+                  var windRes = windPatt.test(String(todayObj[0].weather));
+
+                  if (windRes) {
+                    $('.app-top__weather-conditions').css('transform', 'rotate(45deg');
+                  }
+
+                  createRain(drops, dropIntensity);
+                }
+
+                //console.log(weatherCode);
+
+                
 
                //$('#app').html('The current weather in Seattle is ' + ob.weather.toLowerCase() + ' with a temperature of ' + ob.tempF + '°');
               $.get('/assets/images/weather-icons/' + todayObj[0].icon.replace('png', 'svg'), function(svg){

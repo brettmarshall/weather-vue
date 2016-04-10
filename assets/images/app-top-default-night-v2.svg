@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1440px" height="584px" viewBox="0 0 1440 584" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>Night Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Night-Copy">
+            <circle id="Oval-1" fill="#FFAD2C" cx="720.5" cy="325.5" r="159.5"></circle>
+            <g id="Mountains" transform="translate(-470.000000, 229.000000)">
+                <g id="Top">
+                    <polygon id="Triangle-21" fill="#882B32" points="483 1 966 483 -5.68434189e-14 483 "></polygon>
+                    <path d="M596.567427,114.332298 L966,483 L227.134855,483 L596.567427,114.332298 Z" id="Combined-Shape" fill="#882B32" opacity="0.2" style="mix-blend-mode: multiply;"></path>
+                    <polygon id="Triangle-21-Copy" fill="#882B32" points="676 66 1159 548 193 548 "></polygon>
+                    <path d="M788.432573,178.199793 L1093.86515,483 L483,483 L788.432573,178.199793 Z" id="Combined-Shape" fill="#882B32" opacity="0.2" style="mix-blend-mode: multiply;"></path>
+                    <polygon id="Triangle-21-Copy-5" fill="#882B32" points="1643 0 2126 482 1160 482 "></polygon>
+                    <path d="M1529.93257,112.833333 L1899.86515,482 L1160,482 L1529.93257,112.833333 Z" id="Combined-Shape" fill="#872C33" opacity="0.171933302" style="mix-blend-mode: multiply;"></path>
+                    <polygon id="Triangle-21-Copy-4" fill="#882B32" points="1451 66 1934 548 968 548 "></polygon>
+                    <polygon id="Triangle-21-Copy-2" fill="#882B32" points="999 1 1482 483 516 483 "></polygon>
+                    <path d="M1113.06743,114.831263 L1482,483 L744.134855,483 L1113.06743,114.831263 Z" id="Combined-Shape" fill="#872C33" opacity="0.2" style="mix-blend-mode: multiply;"></path>
+                </g>
+                <g id="Medium" transform="translate(1256.500000, 370.500000) scale(-1, 1) translate(-1256.500000, -370.500000) translate(129.000000, 65.000000)" fill="#4D172B">
+                    <polygon id="Triangle-21" points="483 66 966 548 -5.68434189e-14 548 "></polygon>
+                    <polygon id="Triangle-21-Copy" points="804 129 1287 611 321 611 "></polygon>
+                    <path d="M851.420561,176.324452 L1271.9668,596 L430,596 L851.420561,176.324452 Z" id="Combined-Shape" opacity="0.2" style="mix-blend-mode: multiply;"></path>
+                    <polygon id="Triangle-21-Copy-2" points="1063 0 1546 482 580 482 "></polygon>
+                    <path d="M1111,48.8985507 L1545,482 L1111,482 L677,482 L1111,48.8985507 Z" id="Combined-Shape" opacity="0.2" style="mix-blend-mode: multiply;"></path>
+                    <path d="M1178.56846,115.329193 L1546,482 L811.136929,482 L1178.56846,115.329193 Z" id="Combined-Shape" opacity="0.2" style="mix-blend-mode: multiply;"></path>
+                    <polygon id="Triangle-21-Copy-3" points="1256 66 1739 548 773 548 "></polygon>
+                    <polygon id="Triangle-21-Copy-4" points="1578 129 2061 611 1095 611 "></polygon>
+                    <path d="M1144.10166,562 L1533.6459,173.262271 L1924,562 L1144.10166,562 Z" id="Combined-Shape" opacity="0.199999988" style="mix-blend-mode: multiply;"></path>
+                    <polygon id="Triangle-21-Copy-5" points="1772 65 2255 547 1289 547 "></polygon>
+                </g>
+                <g id="Bottom" transform="translate(129.000000, 65.000000)" fill="#30172D">
+                    <polygon id="Triangle-21" points="483 65 966 547 -5.68434189e-14 547 "></polygon>
+                    <path d="M655.794606,238.436853 L899.589212,481.726708 L412,481.726708 L655.794606,238.436853 Z" id="Combined-Shape" opacity="0.2" style="mix-blend-mode: multiply;"></path>
+                    <polygon id="Triangle-21-Copy-5" points="1772 65 2255 547 1289 547 "></polygon>
+                    <path d="M1660.93257,175.829193 L2028.86515,543 L1293,543 L1660.93257,175.829193 Z" id="Combined-Shape" opacity="0.201784049" style="mix-blend-mode: multiply;"></path>
+                    <polygon id="Triangle-21-Copy-4" points="1579 129 2062 611 1096 611 "></polygon>
+                    <path d="M1470.00104,238.773292 L1843,610 L1097.00207,610 L1470.00104,238.773292 Z" id="Combined-Shape" opacity="0.203008396" style="mix-blend-mode: multiply;"></path>
+                    <polygon id="Triangle-21-Copy-3" points="1322 130 1805 611 839 611 "></polygon>
+                    <path d="M1274.58359,177.215925 L1580,482 L968.532225,482 L1274.58359,177.215925 Z" id="Combined-Shape" opacity="0.203008396" style="mix-blend-mode: multiply;"></path>
+                    <polygon id="Triangle-21-Copy-3" points="806 129 1289 610 323 610 "></polygon>
+                    <path d="M855.280374,178.076314 L1160.19335,481.726708 L551,481.726708 L855.280374,178.076314 Z" id="Combined-Shape" opacity="0.2" style="mix-blend-mode: multiply;"></path>
+                    <polygon id="Triangle-21-Copy-2" points="1063 0 1546 482 580 482 "></polygon>
+                </g>
+            </g>
+            <rect id="Rectangle-25" fill="#110343" style="mix-blend-mode: color;" x="0" y="0" width="1440" height="584"></rect>
+        </g>
+    </g>
+</svg>
