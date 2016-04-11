@@ -1,1 +1,1 @@
-<script src="dist/scripts/main.js"></script>
+<script src="dist/scripts/main.js" async></script>

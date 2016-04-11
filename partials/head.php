@@ -34,4 +34,4 @@
 <meta name="msapplication-config" content="/browserconfig.xml">
 <!-- ****** faviconit.com favicons ****** -->
 
-<script type="text/javascript" src="//fast.fonts.net/jsapi/250f98b8-9f1d-44c5-8d23-6c39520e2d49.js"></script>
+<script type="text/javascript" src="//fast.fonts.net/jsapi/250f98b8-9f1d-44c5-8d23-6c39520e2d49.js" async></script>
