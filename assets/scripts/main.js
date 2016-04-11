@@ -9,13 +9,13 @@
   WV.init = function(){
     //WV.helpers();
     WV.additionalModernizrTests();
-    WV.heroHeight();
-    WV.modals();
-    WV.slider();
-    WV.carousel();
-    WV.fancySelect();
-    WV.fancyChoices();
-    WV.forms();
+    //WV.heroHeight();
+    //WV.modals();
+    //WV.slider();
+    //WV.carousel();
+    //WV.fancySelect();
+    //WV.fancyChoices();
+    //WV.forms();
     WV.vue();
     //WV.rain();
     //WV.mixing();

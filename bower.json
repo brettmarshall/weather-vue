@@ -7,16 +7,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "jquery": "*",
     "modernizr": "2.8.2",
-    "owl.carousel": "*",
-    "skrollr": "~0.6.29",
-    "animate.css-scss": "~3.1.0",
-    "mixitup": "~2.1.9",
-    "magnific-popup": "~1.0.0",
-    "matchHeight": "matchheight#~0.6.0",
-    "floatlabel.js": "*",
-    "chosen": "~1.4.2",
-    "iCheck": "~1.0.2",
     "vue": "^1.0.17",
     "geolocator": "^1.2.9",
     "moment": "^2.12.0"
@@ -25,23 +17,8 @@
     "modernizr": {
       "main": "./modernizr.js"
     },
-    "owl.carousel": {
-      "main": [
-        "./dist/owl.carousel.js",
-        "./dist/assets/owl.carousel.css"
-      ]
-    },
-    "chosen": {
-      "main": "./chosen.jquery.min.js"
-    },
-    "iCheck": {
-      "main": "./icheck.js"
-    },
-    "matchHeight": {
-      "main": "./jquery.matchHeight-min.js"
-    },
-    "floatlabel.js": {
-      "main": "./floatlabels.js"
-    }
+    "jquery": {
+      "main": "./dist/jquery.min.js"
+    }    
   }
 }
