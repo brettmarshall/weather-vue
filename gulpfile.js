@@ -24,6 +24,7 @@ var secrets      = require('./secrets.json');
 var gutil        = require('gulp-util');
 var del          = require('del');
 var php2html     = require("gulp-php2html");
+var critical     = require('critical');
 
 // See https://github.com/austinpray/asset-builder
 var manifest = require('asset-builder')('./assets/manifest.json');
@@ -235,7 +236,7 @@ gulp.task('jshint', function() {
 });
 
 gulp.task('htmlDist', function() {
-  gulp.src("index.php")
+  gulp.src("dev.php")
     .pipe(php2html())
     .pipe(gulp.dest("./"));  
 });
@@ -448,9 +449,20 @@ gulp.task('clean-wordpress', function () {
   ], {force: true});
 });
 
+gulp.task('critical', function() {
+  critical.generate({
+      inline: true,
+      src: 'dev.html',
+      dest: 'index.html',
+      minify: true,
+      width: 1440,
+      height: 900
+  });
+});
+
 
 // ### Gulp
 // `gulp` - Run a complete build. To compile for production run `gulp --production`.
-gulp.task('default', ['clean', 'clean-wordpress'], function() {
+gulp.task('default', ['clean', 'critical'], function() {
   gulp.start('build');
 });

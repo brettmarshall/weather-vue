@@ -9,8 +9,6 @@
 	#app { display: none; }
 </style>
 
-<link rel="stylesheet" href="dist/styles/main.css">
-
 <!-- ****** faviconit.com favicons ****** -->
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
