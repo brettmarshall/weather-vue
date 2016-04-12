@@ -6,7 +6,6 @@
         <?php include_once('partials/head.php'); ?>
     </head>
     <body class="homepage">
-        <?php //include_once('partials/nav.php'); ?>
         <?php include_once('partials/header.php'); ?>
         
         <div id="app" data-app="true">
