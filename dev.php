@@ -23,7 +23,7 @@
                 <div class="day-of">
                     {{ weather.today.newIcon }}
                     <h2 class="day-of__description">{{ weather.today.weatherPrimary }}</h2>
-                    <h1 class=class="day-of__temp">{{ weather.today.tempF }}&deg;</h1>
+                    <h1 class="day-of__temp">{{ weather.today.tempF }}&deg;</h1>
                 </div>
 
                 <div class="app-top__weather-conditions"></div>

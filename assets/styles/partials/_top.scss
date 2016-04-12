@@ -7,8 +7,9 @@
 	background: #FFDC69;
 	height: auto;
 	background-image: url('../images/app-top-default-day.svg');
+	//background-image: linear-gradient(0deg, #9D331B 0%, #F59436 1%, #D3C3A0 18%, #5574AE 42%, #334E88 64%, #091231 100%);
 	background-size: cover;
-	background-position: bottom center;
+	background-position: top center;
 	background-repeat: no-repeat;
 	color: #000;
 	position: relative;
@@ -50,8 +51,10 @@
 }
 
 .app-top--is-night {
-	background-image: url('../images/app-top-default-night.svg');
+	background-image: url('../images/app-top-default-night-v3.svg');
+	background-position: top center;
 	//background-image: url('../images/app-top-night.svg');
+	/* Rectangle 26: */
 	color: #fff;
 
 	svg path, svg ellipse {

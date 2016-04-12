@@ -202,10 +202,10 @@
 
                 var weatherCode = todayObj[0].weatherPrimaryCoded.split(':');
 
+
                 var coverage = String(weatherCode[0]),
                     intensity = String(weatherCode[1]),
                     weather = String(weatherCode[2]);
-
 
                 var weatherConditions = new RegExp('[asilrwp]', 'i');
                 var res = weatherConditions.test(weather);
@@ -213,7 +213,7 @@
                 var drops = '';
 
                 // if there is rain...
-                if (res) {
+                if (coverage !== '' && intensity !== '' && weather !== '' && res) {
                   
                   // We have some sort of rain or snow...
 
@@ -315,7 +315,12 @@
 
     }
 
+    // $('.day-of').on("DOMNodeInserted", function(e){
+    //   var $this = $(this);
 
+    //   $this.addClass('loaded');
+    //   $('.week-day').addClass('loaded');
+    // });  
 
   };
 
@@ -555,6 +560,8 @@
     var app = $('#app');
 
     app.fadeIn(300);
+    $('.day-of').addClass('loaded');
+    $('.week-day').addClass('loaded');    
   };
 
 

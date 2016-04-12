@@ -253,18 +253,18 @@ gulp.task('clean', require('del').bind(null, [path.dist]));
 // See: http://www.browsersync.io
 gulp.task('watch', function() {
   browserSync.init({
-    files: ['{partials}/*.php', '*.php', 'index.php'],
+    files: ['{partials}/*.php', '*.php', 'dev.php'],
     proxy: config.devUrl,
     snippetOptions: {
       whitelist: ['/wp-admin/admin-ajax.php'],
       blacklist: ['/wp-admin/**']
     }
   });
-  gulp.watch([path.source + 'styles/**/*'], ['styles']);
-  gulp.watch([path.source + 'scripts/**/*'], ['jshint', 'scripts']);
+  gulp.watch([path.source + 'styles/**/*'], ['styles', 'cleanHtml', 'htmlDist', 'critical']);
+  gulp.watch([path.source + 'scripts/**/*'], ['jshint', 'scripts', 'cleanHtml', 'htmlDist', 'critical']);
   gulp.watch([path.source + 'fonts/**/*'], ['fonts']);
   gulp.watch([path.source + 'images/**/*'], ['images']);
-  gulp.watch(['index.php'], ['htmlDist']);
+  gulp.watch(['dev.php'], ['cleanHtml', 'htmlDist', 'critical']);
   gulp.watch(['bower.json', 'assets/manifest.json'], ['build']);
 });
 
@@ -449,6 +449,8 @@ gulp.task('clean-wordpress', function () {
   ], {force: true});
 });
 
+gulp.task('cleanHtml', require('del').bind(null, ['dev.html', 'index.html']));
+
 gulp.task('critical', function() {
   critical.generate({
       inline: true,
@@ -463,6 +465,6 @@ gulp.task('critical', function() {
 
 // ### Gulp
 // `gulp` - Run a complete build. To compile for production run `gulp --production`.
-gulp.task('default', ['clean', 'critical'], function() {
+gulp.task('default', ['clean', 'cleanHtml', 'htmlDist', 'critical'], function() {
   gulp.start('build');
 });
