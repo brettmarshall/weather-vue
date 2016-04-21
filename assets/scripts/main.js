@@ -37,29 +37,29 @@
 
   WV.vue = function() {
 
-  var getUrlParameter = function getUrlParameter(sParam) {
-      var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-          sURLVariables = sPageURL.split('&'),
-          sParameterName,
-          i;
+  // var getUrlParameter = function getUrlParameter(sParam) {
+  //     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+  //         sURLVariables = sPageURL.split('&'),
+  //         sParameterName,
+  //         i;
 
-      for (i = 0; i < sURLVariables.length; i++) {
-          sParameterName = sURLVariables[i].split('=');
+  //     for (i = 0; i < sURLVariables.length; i++) {
+  //         sParameterName = sURLVariables[i].split('=');
 
-          if (sParameterName[0] === sParam) {
-              return sParameterName[1] === undefined ? true : sParameterName[1];
-          }
-      }
-  };
+  //         if (sParameterName[0] === sParam) {
+  //             return sParameterName[1] === undefined ? true : sParameterName[1];
+  //         }
+  //     }
+  // };
 
-  var client_id = getUrlParameter('id') || 'xeLjwzcBZlpB1FxcTvQeN';
-  var client_secret;
+  // var client_id = getUrlParameter('id') || 'xeLjwzcBZlpB1FxcTvQeN';
+  // var client_secret;
 
-  if (getUrlParameter('secret') || window.location.hostname == 'weather.brett-marshall.com') {
-    client_secret = 'qPjiDGfctvbRVT0xlPpbhumYgf97VtfbylQP6sSN';
-  } else {
-    client_secret = 'dSL0o3LFRHpvvkXcfGloWJwcYIrGSgbwBzgPZDCU';
-  }
+  // if (getUrlParameter('secret') || window.location.hostname == 'weather.brett-marshall.com') {
+  //   client_secret = 'qPjiDGfctvbRVT0xlPpbhumYgf97VtfbylQP6sSN';
+  // } else {
+  //   client_secret = 'dSL0o3LFRHpvvkXcfGloWJwcYIrGSgbwBzgPZDCU';
+  // }
 
   /* Weather Conditions */
 
@@ -176,7 +176,7 @@
       
       // Todat's forcast
       $.ajax({
-         url: "http://api.aerisapi.com/forecasts/" + lat + ', ' + long + "?filter=1hr&limit=1&client_id=" + client_id + "&client_secret=" + client_secret,
+         url: "http://api.aerisapi.com/forecasts/" + lat + ', ' + long + "?filter=1hr&limit=1&client_id=" + creds.client_id() + "&client_secret=" + creds.client_secret(),
          dataType: "jsonp",
          success: function(json) {
             if (json.success === true) {
@@ -211,6 +211,14 @@
                 var res = weatherConditions.test(weather);
 
                 var drops = '';
+
+                var cloudBool = new RegExp('cloud', 'i');
+                var cloudBoolres = cloudBool.test(todayObj[0].weather);                
+
+                if (cloudBoolres) {
+                  $('<span class="cloud top left light"></span>').appendTo('.app-top');
+                  $('<span class="cloud bottom right light-2"></span>').appendTo('.app-top');
+                }
 
                 // if there is rain...
                 if (coverage !== '' && intensity !== '' && weather !== '' && res) {
@@ -274,7 +282,7 @@
 
       // 5 Day Forcast
       $.ajax({
-         url: "http://api.aerisapi.com/forecasts/" + lat + ', ' + long + "?filter=24hr&limit=5&client_id=" + client_id + "&client_secret=" + client_secret,
+         url: "http://api.aerisapi.com/forecasts/" + lat + ', ' + long + "?filter=24hr&limit=5&client_id=" + creds.client_id() + "&client_secret=" + creds.client_secret(),
          dataType: "jsonp",
          success: function(json) {
             if (json.success === true) {

@@ -6,12 +6,12 @@
 .app-top {
 	background: #FFDC69;
 	height: auto;
-	background-image: url('../images/app-top-default-day.svg');
+	background-image: url('../images/app-top-default-day-v2.svg');
 	//background-image: linear-gradient(0deg, #9D331B 0%, #F59436 1%, #D3C3A0 18%, #5574AE 42%, #334E88 64%, #091231 100%);
 	background-size: cover;
 	background-position: top center;
 	background-repeat: no-repeat;
-	color: #000;
+	color: #fff;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -41,7 +41,22 @@
 		margin-top: -4rem;		
 
 		path, ellipse {
-			fill: #000;
+			fill: #fff;
+		}
+
+		#sun, [id^="ray"] {
+			fill: #ECBE13;
+		}
+
+		[id^="ray"] {
+			animation: grow 1s ease-in alternate both infinite;
+			transform-origin: center center;
+
+			&:nth-of-type(1) { animation: grow 1s ease-in alternate both infinite 0.5s; }
+			&:nth-of-type(2) { animation: grow 1s ease-in alternate both infinite 1s; }
+			&:nth-of-type(3) { animation: grow 1s ease-in alternate both infinite 1.5s; }
+			&:nth-of-type(4) { animation: grow 1s ease-in alternate both infinite 2s; }
+			&:nth-of-type(5) { animation: grow 1s ease-in alternate both infinite 2.5s; }
 		}
 	}
 }
@@ -101,7 +116,22 @@
   
 }
 
-/* animate the drops*/
+/* animate the drops */
 @keyframes fall {
 	to {margin-top:900px;}
+}
+
+/* animate the sun rays */
+@keyframes grow {
+	0% {
+		transform: translateY(0) translateX(0);
+	}
+
+	50% {
+		transform: translateY(-0.05rem) translateX(0.05rem);
+	}
+
+	100% {
+		transform: translateY(0) translateX(0);
+	}	
 }

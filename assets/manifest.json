@@ -1,8 +1,14 @@
 {
   "dependencies": {
     "main.js": {
+      "vendor" : [
+        "assets/scripts/pubsub.js",
+        "assets/scripts/functions.js",
+        "assets/scripts/today.js",
+        "assets/scripts/five-day.js"
+      ],
       "files": [
-        "scripts/**/*",
+        "scripts/ss-social.js",
         "scripts/main.js"
       ],
       "main": true
