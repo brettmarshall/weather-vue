@@ -12,7 +12,7 @@
 
             <div class="app-top" v-bind:class="today.isDay === false ? 'app-top--is-night' : 'app-top--is-day'" id="today" v-cloak>
 
-                <span class="update-location">Update Location</span>
+                <span class="update-location"></span>
 
 
                 <div class="day-of">
