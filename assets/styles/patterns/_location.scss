@@ -7,27 +7,24 @@
 	display: none;
 	width: 100%;
 	position: absolute;
-	bottom: 2.4rem;
-	left: 2.4rem;
+	top: 2.4rem;	
+	left: 0;
 	color: rgba(#000, 0.6);
+	z-index: 10;
+	padding-left: 2.4rem;
 
-	@media (min-width: 1320px) and (min-height: 670px) {
+	@include breakpoint(430px) {
+		top: 2.4rem;	
+		bottom: auto;
 		display: block;
 	}
 
-	&.location-meta--top {
-		bottom: auto;
-		top: 2.4rem;
-		display: none;
-
-		@include breakpoint(430px, min-width) {
-			display: block;
-		}
-
-		@media (min-width: 1320px) and (min-height: 670px) {
-			display: none;
-		}		
+	@media (min-width: 1320px) and (min-height: 670px) {
+		display: block;
+		bottom: 2.4rem;
+		top: auto;
 	}
+
 }
 
 .location-meta__location {
@@ -55,4 +52,43 @@
 	display: inline-block;
     text-align: center;
     padding-top: 0.1rem;	
+}
+
+.app-top--is-night {
+
+	& ~ .location-meta {
+		color: #fff;
+
+		@include breakpoint(430px) {
+			color: #fff;
+		}
+
+		@media (min-width: 1320px) and (min-height: 670px) {
+			color: rgba(#000, 0.6);
+		}		
+	}
+
+	& ~ .location-meta .location-meta__calendar {
+		background: url('../images/calendar-white.svg') top left no-repeat;	
+
+		@include breakpoint(430px) {
+			background: url('../images/calendar-white.svg') top left no-repeat;	
+		}
+
+		@media (min-width: 1320px) and (min-height: 670px) {
+			background: url('../images/calendar.svg') top left no-repeat;	
+		}		
+	}
+
+	& ~ .location-meta .location-meta__location {
+		background: url('../images/location-white.svg') top left no-repeat;	
+
+		@include breakpoint(430px) {
+			background: url('../images/location-white.svg') top left no-repeat;	
+		}
+
+		@media (min-width: 1320px) and (min-height: 670px) {
+			background: url('../images/location.svg') top left no-repeat;	
+		}	
+	}	
 }

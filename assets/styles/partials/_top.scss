@@ -17,6 +17,8 @@
 	align-items: center;
 	justify-content: center;	
 	overflow: hidden;
+	opacity: 1;
+	transition: all 0.3s ease-in;
 	
 	@include breakpoint(450px, min-height) {
 		height: 60vh;
@@ -134,4 +136,54 @@
 	100% {
 		transform: translateY(0) translateX(0);
 	}	
+}
+
+.update-location {
+	background: url('../images/reload.svg') top left no-repeat;
+	background-size: auto 4.2rem;	
+	height: 4.2rem;
+	width: 4.2rem;
+	display: inline-block;
+	text-indent: -9999em;
+	position: absolute;
+	top: 2.4rem;
+	right: 2.4rem;
+	z-index: 11;
+	cursor: pointer;
+	transition: transform 1s ease-in-out;
+	transform-origin: center center;
+
+	&.reloading {
+		transition: transform 1s ease-in-out;
+		animation: rotate 0.6s linear infinite;
+	}
+
+	&:hover {
+		animation: rotateTease 0.6s ease-in-out alternate both infinite;
+	}
+
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	},
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotateTease {
+	0% {
+		transform: rotate(0deg) scale(1);
+	},
+
+	50% {
+		transform: rotate(40deg) scale(1.1);
+	},
+
+	100% {
+		transform: rotate(-40deg) scale(1);
+	}
 }

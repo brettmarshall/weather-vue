@@ -7,11 +7,15 @@ html, body {
 	overflow: hidden;	
 }
 // This is a temporary fading in affect.
-#app {
+#app-wrapper {
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
 	overflow: auto;
+}
+
+[v-cloak] {
+  opacity: 0;
 }

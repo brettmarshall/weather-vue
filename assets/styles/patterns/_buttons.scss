@@ -13,6 +13,7 @@
 	transition: all 0.15s ease-out;
 	padding: 1rem 1.5rem;
 	display: inline-block;
+	cursor: pointer;
 
 	&:hover {
 		background: darken($theme-color, 10%);

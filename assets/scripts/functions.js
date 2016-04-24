@@ -1,8 +1,12 @@
+// think about making this getUrlParameter and creds one object called... creds,
+// just have getUrlParameter as a function that is called within the client_id and 
+// client_secret function
 var getUrlParameter = function getUrlParameter(sParam) {
-  var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-      sURLVariables = sPageURL.split('&'),
-      sParameterName,
-      i;
+
+  var sPageURL = decodeURIComponent(window.location.search.substring(1));
+  var sURLVariables = sPageURL.split('&');
+  var sParameterName;
+  var i;
 
   for (i = 0; i < sURLVariables.length; i++) {
       sParameterName = sURLVariables[i].split('=');
@@ -28,37 +32,71 @@ var creds = {
 };
 
 
-function getCurrentLocation(callback) {
 
+// This kicks off the entire app
+if (Cookies.get('cache-geolocation')) {
+
+	Arbiter.publish('location_obtained.global', Cookies.get('cache-geolocation'));
+
+} else {
+
+	// get the current location
 	navigator.geolocation.getCurrentPosition(function (position) {
-	    callback(position.coords.latitude + ', ' + position.coords.longitude);
-	});    
-}  
+		// notify the rest of the app, the location has been obtained
+		// provide the long + lat in the following format  |  -31.444, 95.3305
+	    Cookies.set('cache-geolocation', position.coords.latitude + ', ' + position.coords.longitude);
+	    Arbiter.publish('location_obtained.global', position.coords.latitude + ', ' + position.coords.longitude);
+	});
 
-var pleaseBeLoc = getCurrentLocation(function(loc) {	
-	pubsub.publish('location_obtained', loc);
-});
+}
 
 
-// var getRequest = function() {
 
-// 	$.ajax({
-// 		url: "http://api.aerisapi.com/forecasts/" + pleaseBeLoc + "?filter=1hr&limit=1&client_id=" + creds.client_id() + "&client_secret=" + creds.client_secret(),
-// 		dataType: "jsonp",
-// 		success: function(json) {
-// 			if (json.success === true) {
-// 				return json.response;     
-// 			}
-// 			else {
-// 				console.log(json.error.description);
-// 			}
-// 		}
-// 	});
+function get_city(coords) {
 
-// };
+	var lat = coords.split(', ')[0],
+		long = coords.split(', ')[1];
 
-// console.log(getRequest);
+	var geocoder = new google.maps.Geocoder();
+	var latlong = new google.maps.LatLng(lat, long);
 
-pubsub.subscribe('location_obtained', function(loc) {
-	console.log('fake promise', loc);
-});
+	geocoder.geocode({
+	    'latLng': latlong
+	}, function(results, status) {
+
+	    if (status == google.maps.GeocoderStatus.OK) {
+	    	var city = results[0].address_components[2].long_name;
+	        Arbiter.publish('city_obtained.global', [city, coords] );
+	    } else {
+
+	    }
+	});
+}
+
+Arbiter.subscribe('location_obtained.global', get_city);
+
+
+
+
+// function to generate a random number range.
+function randRange( minNum, maxNum) {
+	return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+}
+
+// function to generate drops
+function createRain(nbDrop, inten) {
+	nbDrop = nbDrop || 50;
+	inten = inten || '';
+
+	for( i=1;i<nbDrop;i++) {
+		var dropLeft = randRange(0,1600);
+		var dropTop = randRange(-1000,1400);
+		var thisDrop = $('#drop'+i);
+
+		$('.app-top__weather-conditions').append('<div class="drop" id="drop'+i+'"></div>');
+		$('#drop'+i).css('left',dropLeft);
+		$('#drop'+i).css('top',dropTop);
+		$('#drop'+i).addClass(inten);
+	}
+
+}

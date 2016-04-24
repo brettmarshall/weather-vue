@@ -20,9 +20,13 @@
 	padding-bottom: 3.7rem;
 	transform: translateY(20px);
 	opacity: 0;
-	transition-property: all;
-	transition-duration: 0.3s;
-	transition-timing-function: cubic-bezier(0.68,-0.55, 0.43, 1.46);
+	animation-name: up;
+	animation-duration: 0.3s; 
+	animation-timing-function: cubic-bezier(0.68,-0.55, 0.43, 1.46); 
+	animation-delay: 0;
+	animation-direction: normal;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
 
 	&:last-of-type {
 		margin-right: 0;
@@ -33,17 +37,24 @@
 		padding-bottom: 0;
 	}
 
-	&:nth-child(1) { transition-delay: 0s; }	
-	&:nth-child(2) { transition-delay: 0.05s; }	
-	&:nth-child(3) { transition-delay: 0.1s; }	
-	&:nth-child(4) { transition-delay: 0.15s; }	
-	&:nth-child(5) { transition-delay: 0.2s; }	
+	&:nth-child(1) { animation-delay: 0.5s; }	
+	&:nth-child(2) { animation-delay: 0.55s; }	
+	&:nth-child(3) { animation-delay: 0.6s; }	
+	&:nth-child(4) { animation-delay: 0.65s; }	
+	&:nth-child(5) { animation-delay: 0.7s; }	
 
-	&.loaded {
+}
+
+@keyframes up {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	100% {
 		opacity: 1;
 		transform: translateY(0);
 	}
-
 }
 
 .week-day__day {

@@ -4,8 +4,11 @@
       "vendor" : [
         "assets/scripts/pubsub.js",
         "assets/scripts/functions.js",
+        "assets/scripts/update-location.js",
+        "assets/scripts/time.js",
         "assets/scripts/today.js",
-        "assets/scripts/five-day.js"
+        "assets/scripts/five-day.js",
+        "assets/scripts/location-meta.js"
       ],
       "files": [
         "scripts/ss-social.js",

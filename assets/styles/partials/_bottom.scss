@@ -11,6 +11,8 @@
 	justify-content: center;	
 	padding: 2.9rem 0;
 	overflow-x: hidden;
+	opacity: 1;
+	transition: all 0.3s ease-in;	
 
 	@media (min-height: 450px) and (min-width: 650px) {
 		height: 40vh;

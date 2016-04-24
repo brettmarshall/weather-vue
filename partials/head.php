@@ -6,7 +6,7 @@
 
 
 <style>
-	#app { display: none; }
+	#app-wrapper { display: none; }
 </style>
 
 <link rel="stylesheet" href="dist/styles/main.css">
