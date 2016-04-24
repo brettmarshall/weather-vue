@@ -20,3 +20,6 @@
 * ~~New tab Chrome Extension~~
 * ~~Integrate Custom SVG Icons~~
 * Better Design
+
+#### Chrome Extension
+You can grab the chrome extension [here](https://chrome.google.com/webstore/detail/weather-tab/jkodnifelbhifjfgpkgdacnpibholcna)
