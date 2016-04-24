@@ -85,6 +85,7 @@ function randRange( minNum, maxNum) {
 
 // function to generate drops
 function createRain(nbDrop, inten) {
+	console.log('createRain');
 	nbDrop = nbDrop || 50;
 	inten = inten || '';
 

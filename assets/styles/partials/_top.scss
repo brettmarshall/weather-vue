@@ -140,7 +140,7 @@
 
 .update-location {
 	background: url('../images/reload.svg') top left no-repeat;
-	background-size: auto 4.2rem;	
+	background-size: contain;	
 	height: 4.2rem;
 	width: 4.2rem;
 	display: inline-block;
@@ -160,6 +160,10 @@
 
 	&:hover {
 		animation: rotateTease 0.6s ease-in-out alternate both infinite;
+	}
+
+	&:active {
+		transform: scale(1.2);
 	}
 
 }

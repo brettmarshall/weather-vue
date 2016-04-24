@@ -4,6 +4,8 @@
 
 
 var todayForcast = (function() {
+
+	var $top = $('#app-top');
 	
 	// get data
 	function get_request(loc) {
@@ -86,8 +88,8 @@ var todayForcast = (function() {
 	    var weatherConditions = new RegExp('[asilrwp]', 'i');
 	    var res = weatherConditions.test(weather);
 
-	    var drops = '';
 
+        $('.app-top__weather-conditions').remove();
 
 	    // if there is rain...
 	    if (coverage !== '' && intensity !== '' && weather !== '' && res) {
@@ -97,11 +99,11 @@ var todayForcast = (function() {
 
 		  // remove rain, this comes in handy if you're updating the location
 		  // otherwise, it would double the rain output
-	      $('.app-top__weather-conditions').remove();
 
+	      var drops = '';
 	      // this gets the intensity of the rain, and adds
 	      // drops and a class for more customization of the drops
-	      switch (intensity) {
+	      switch ('H') {
 	        case 'VL':
 	          drops = 30;
 	          dropIntensity = '';
@@ -124,6 +126,8 @@ var todayForcast = (function() {
 	      // the box that has the drops, 45 degrees.
 	      var windPatt = new RegExp('wind', 'i');
 	      var windRes = windPatt.test(String(today.weather));
+
+	      $('#today').append('<div class="app-top__weather-conditions"></div>');
 
 	      if (windRes) {
 	        $('.app-top__weather-conditions').css('transform', 'rotate(45deg');
