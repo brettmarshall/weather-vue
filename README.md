@@ -14,6 +14,6 @@
 
 #### Future Development
 
-* ~~~New tab Chrome Extension~~~
-* ~~~Integrate Custom SVG Icons~~~
+* ~~New tab Chrome Extension~~
+* ~~Integrate Custom SVG Icons~~
 * Better Design
