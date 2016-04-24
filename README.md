@@ -2,6 +2,8 @@
 
 5 Day Weather Forcast
 
+(https://github.com/brettmarshall/weather-vue/blob/master/readme-shot.png "Weather Vue Screenshot")
+
 #### Data Sources
 
 * Aeris Weather [API](http://www.aerisweather.com/support/docs/api/)
