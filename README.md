@@ -2,7 +2,8 @@
 
 5 Day Weather Forcast
 
-(https://github.com/brettmarshall/weather-vue/blob/master/readme-shot.png "Weather Vue Screenshot")
+
+![Screenshot](https://github.com/brettmarshall/weather-vue/blob/master/readme-shot.png)
 
 #### Data Sources
 
