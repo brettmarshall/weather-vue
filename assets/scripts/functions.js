@@ -23,7 +23,7 @@ var creds = {
 	},
 	client_secret : function() {
 		// if its live
-		if (getUrlParameter('secret') || window.location.hostname == 'weather.brett-marshall.com') {
+		if (getUrlParameter('secret') || window.location.hostname == 'https://weather.brett-marshall.com') {
 			return 'qPjiDGfctvbRVT0xlPpbhumYgf97VtfbylQP6sSN';
 		} else { // if we're in dev environment
 			return 'dSL0o3LFRHpvvkXcfGloWJwcYIrGSgbwBzgPZDCU';

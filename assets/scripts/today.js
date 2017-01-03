@@ -103,7 +103,7 @@ var todayForcast = (function() {
 	      var drops = '';
 	      // this gets the intensity of the rain, and adds
 	      // drops and a class for more customization of the drops
-	      switch ('H') {
+	      switch (intensity) {
 	        case 'VL':
 	          drops = 30;
 	          dropIntensity = '';
